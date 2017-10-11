@@ -3,6 +3,7 @@
 		<title>Login</title>
 	</head>
 	<body>
+		<h3>PHP using MYSQLi - Prepared Statement</h3>
 		<form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
 		<label for="">Username</label>
 		<input type="text" name="user" value="" autocomplete="off" required="">
