@@ -56,4 +56,4 @@ $stmt1->close();
 
 <br>
 
-<a href="main.php">Back</a>
+<a href="user-list.php">Back</a>

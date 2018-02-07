@@ -67,5 +67,6 @@ if (isset($_POST['btnSearch'])) {
 }
 ?>
 <p>
-	<a href="logout.php">Keluar</a>
+	<a href="user-list.php">List of Users</a> | 
+	<a href="logout.php">Logout</a>
 </p>
