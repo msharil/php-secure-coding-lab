@@ -22,7 +22,7 @@ if (isset($_POST['btnSearch'])) {
 	include 'db_local.php';
 
 	$search = "%{$param}%";
-	$sql = "SELECT user, fullname FROM login1 WHERE user LIKE ? OR fullname LIKE ? ";
+	$sql = "SELECT id, user, fullname FROM login1 WHERE user LIKE ? OR fullname LIKE ? ";
 
 	$stmt = $conn->prepare($sql);
 	$stmt->bind_param("ss", $search, $search);
@@ -30,7 +30,7 @@ if (isset($_POST['btnSearch'])) {
 	if($stmt->execute()) {
 
 		$stmt->store_result();
-		$stmt->bind_result($uName, $fName);
+		$stmt->bind_result($id, $uName, $fName);
 
 		if($stmt->num_rows > 0) {
 
@@ -38,6 +38,7 @@ if (isset($_POST['btnSearch'])) {
 			echo '<tr>';
 			echo '<th>Username</th>';
 			echo '<th>Fullname</th>';
+			echo '<th>Action</th>';
 			echo '</tr>';
 			while($stmt->fetch()) {
 
@@ -45,6 +46,9 @@ if (isset($_POST['btnSearch'])) {
 				//while($stmt->fetch()){
 					echo '<td>'.$uName.'</td>';
 					echo '<td>'.$fName.'</td>';
+					echo '<td>';
+					echo '<a href="view.php?id='.$id.'" >View</a>';
+					echo '</td>';
 				//}
 				echo '</tr>';
 			}
